@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Candidate profile{% endblock %}
+{% block content %}
+<a class="small text-muted" href="{{ url_for('pages.candidates') }}"><i class="bi bi-arrow-left"></i> All candidates</a>
+<div id="profile" data-id="{{ candidate_id }}"><div class="text-muted py-5">Loading…</div></div>
+<div class="modal fade" id="editModal" tabindex="-1"><div class="modal-dialog modal-xl modal-dialog-scrollable"><form class="modal-content" id="editForm" novalidate>
+  <div class="modal-header"><h2 class="modal-title h5">Edit candidate</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+  <div class="modal-body" id="editBody"></div>
+  <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button><button class="btn btn-brand" type="submit">Save changes</button></div>
+</form></div></div>
+{% endblock %}

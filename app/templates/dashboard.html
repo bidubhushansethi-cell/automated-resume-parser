@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>Dashboard</h1><p class="text-muted mb-0">Where your candidate pool stands today.</p></div>
+  <a class="btn btn-brand" href="{{ url_for('pages.upload') }}"><i class="bi bi-cloud-arrow-up"></i> Upload resumes</a>
+</div>
+<div class="row g-3 mb-3" id="statCards">
+  {% for key, label, icon in [('total_resumes','Resumes uploaded','file-earmark-text'),('total_candidates','Candidates','people'),('total_skills','Distinct skills identified','tags'),('average_experience','Average experience (years)','briefcase')] %}
+  <div class="col-6 col-xl-3"><div class="stat"><i class="bi bi-{{ icon }}"></i><div><div class="stat-value" data-stat="{{ key }}">–</div><div class="stat-label">{{ label }}</div></div></div></div>
+  {% endfor %}
+</div>
+<div class="row g-3">
+  <div class="col-xl-7"><div class="panel"><h2>Recent uploads</h2><div id="recentUploads" class="table-responsive"></div></div></div>
+  <div class="col-xl-5"><div class="panel"><h2>Skills by category</h2><div id="catBars"></div></div></div>
+  <div class="col-md-6 col-xl-4"><div class="panel"><h2>Most common skills</h2><div id="topSkills"></div></div></div>
+  <div class="col-md-6 col-xl-4"><div class="panel"><h2>Experience levels</h2><div id="expBars"></div></div></div>
+  <div class="col-xl-4"><div class="panel"><h2>Uploads, last 7 days</h2><div id="dayBars"></div></div></div>
+</div>
+{% endblock %}
